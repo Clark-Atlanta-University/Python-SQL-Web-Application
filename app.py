@@ -31,10 +31,10 @@ def initialize():
 
 def load_data():
     with connect() as conn:
-        return pd.read_sql_query('SELECT Business_ID, Business_Name, Industry, City FROM BUSINESS ORDER BY Business_Name', conn)
+        return pd.read_sql_query('SELECT Business_ID, Business_Name, Industry, City FROM BUSINESS ORDER BY City, Business_Name', conn)
 
 initialize()
-st.title('🏅 NIL Sponsor Manager')
+st.title('🏅 College NIL Business Directory')
 st.caption('A classroom demonstration of Streamlit + Python + SQLite. Fictional businesses only.')
 
 data = load_data()
